@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Budgety</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+<section class="hero is-medium is-primary is-bold">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title is-1 has-text-weight-bold">
+                <i class="fas fa-calculator"></i> Budgety
+            </h1>
+            <h2 class="subtitle is-5 is-light">
+                Budgeting made simple
+            </h2>
+
+            <div class="field is-grouped">
+                <p class="control has-icons-left">
+                    <span class="select">
+                        <select>
+                            <option>Income</option>
+                            <option>Expense</option>
+                        </select>
+                    </span>
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-money-bill"></i>
+                    </span>
+                </p>
+                <p class="control is-expanded">
+                    <input class="input" type="text" placeholder="Description">
+                </p>
+                <p class="control">
+                    <input class="input" type="number" placeholder="Value">
+                </p>
+                <p class="control">
+                    <a class="button is-primary">
+                        Add
+                    </a>
+                </p>
+            </div>
+
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+    <div class="tile is-ancestor">
+        <div class="tile is-6 is-parent">
+            <div class="tile is-child box">
+                <p class="title has-text-centered is-4">Available Budget In:</p>
+                <p class="subtitle has-text-centered">February 2019</p>
+
+                <div class="tile is-parent is-vertical">
+                    <article class="tile is-child box">
+                        <p class="title has-text-centered is-4"><i class="fas fa-dollar-sign"></i> 0.00</p>
+                    </article>
+
+                    <div class="tile is-child">
+                        <article class="is-child notification is-success">
+                            <div class="columns">
+                                <div class="column">
+                                    <p class="title is-6">💰 Income: </p>
+                                </div>
+                                <div class="column">
+                                    <p class="title is-6"><i class="fas fa-plus-square"></i>  </p>
+                                </div>
+                            </div>
+
+                        </article>
+                        <article class="is-child notification is-danger is-centered">
+                            <div class="columns">
+                                <div class="column is-half">
+                                    <p class="title is-6">💸 Expenses: </p>
+                                </div>
+                                <div class="column">
+                                    <p class="title is-6"><i class="fas fa-minus-square"></i>  </p>
+                                </div>
+                                <div class="column is-1">
+                                    <span class="tag is-warning" style="height:25px; margin-bottom: 2px">---</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="tile is-vertical is-parent">
+            <div class="tile is-child box">
+                <p class="title is-6">Income</p>
+            </div>
+            <div class="tile is-child box">
+                <p class="title is-6">Expenses</p>
+            </div>
+        </div>
+
+    </div>
+    </div>
+</section>
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+            Made with ❤️ by <strong><a href="http://www.github.com/cjianhui">Jian Hui</a></strong> <br/> using <strong><a href="https://bulma.io">Bulma</a></strong> & Vanilla JS
+        </p>
+    </div>
+</footer>
+</body>
+</html>
+
+
+
