@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Budgety</title>
     <link type="text/css" rel="stylesheet" href="style.css">
-    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
@@ -23,7 +23,7 @@
             <div class="field is-grouped">
                 <p class="control has-icons-left">
                     <span class="select">
-                        <select>
+                        <select id="type">
                             <option>Income</option>
                             <option>Expense</option>
                         </select>
@@ -33,132 +33,143 @@
                     </span>
                 </p>
                 <p class="control is-expanded">
-                    <input class="input" type="text" placeholder="Description">
+                    <input class="input" type="text" placeholder="Description" id="add__description">
                 </p>
                 <p class="control">
-                    <input class="input" type="number" placeholder="Value">
+                    <input class="input" type="number" placeholder="Value" id="add__value">
                 </p>
                 <p class="control">
-                    <a class="button is-primary">
+                    <a class="button is-primary" id="add__btn">
                         Add
                     </a>
                 </p>
             </div>
 
-    </div>
+        </div>
 </section>
 <section class="section">
     <div class="container">
-    <div class="tile is-ancestor">
-        <div class="tile is-6 is-parent">
-            <div class="tile is-child box">
-                <p class="title has-text-centered is-4">Available Budget In:</p>
-                <p class="subtitle has-text-centered">February 2019</p>
+        <div class="tile is-ancestor">
+            <div class="tile is-6 is-parent">
+                <div class="tile is-child box">
+                    <p class="title has-text-centered is-4">Available Budget In:</p>
+                    <p class="subtitle has-text-centered">February 2019</p>
 
-                <div class="tile is-parent is-vertical">
-                    <article class="tile is-child box">
-                        <p class="title has-text-centered is-4"><i class="fas fa-plus-circle"></i> <i class="fas fa-dollar-sign"></i> 0.00</p>
-                    </article>
-
-                    <div class="tile is-child">
-                        <article class="is-child notification is-success">
-                            <div class="columns">
-                                <div class="column">
-                                    <p class="title is-6">💰 Income: </p>
-                                </div>
-                                <div class="column">
-                                    <p class="title is-6"><i class="fas fa-plus-square"></i>  </p>
-                                </div>
-                            </div>
-
+                    <div class="tile is-parent is-vertical">
+                        <article class="tile is-child box">
+                            <p class="title has-text-centered is-4"><span id="budget__icon"><i
+                                    class="fas fa-plus-circle"></i></span> <i class="fas fa-dollar-sign"></i> <span
+                                    id="budget__value">0.00</span></p>
                         </article>
-                        <article class="is-child notification is-danger is-centered">
-                            <div class="columns">
-                                <div class="column is-half">
-                                    <p class="title is-6">💸 Expenses: </p>
+
+                        <div class="tile is-child">
+                            <article class="is-child notification is-success">
+                                <div class="columns">
+                                    <div class="column">
+                                        <p class="title is-6">💰 Income: </p>
+                                    </div>
+                                    <div class="column">
+                                        <p class="title is-6"><i class="fas fa-plus-square"></i>
+                                            <span id="budget__income--value">0.00</span>
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="column">
-                                    <p class="title is-6"><i class="fas fa-minus-square"></i>  </p>
+
+                            </article>
+                            <article class="is-child notification is-danger is-centered">
+                                <div class="columns">
+                                    <div class="column is-half">
+                                        <p class="title is-6">💸 Expenses: </p>
+                                    </div>
+                                    <div class="column">
+                                        <p class="title is-6"><i class="fas fa-minus-square"></i>
+                                            <span id="budget__expenses--value">0.00</span>
+                                        </p>
+                                    </div>
+                                    <div class="column is-1">
+                                    <span class="tag is-warning" style="height:25px; margin-bottom: 2px">
+                                        <span id="budget__expenses--percentage">---</span>
+                                    </span>
+                                    </div>
                                 </div>
-                                <div class="column is-1">
-                                    <span class="tag is-warning" style="height:25px; margin-bottom: 2px">---</span>
+                            </article>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="tile is-vertical is-parent">
+                <div class="tile is-child box">
+                    <p class="title is-6 has-text-primary">Income</p>
+                    <div class="income__list">
+
+                        <!--
+                        <div class="item clearfix" id="income-0">
+                            <div class="item__description">Salary</div>
+                            <div class="right clearfix">
+                                <div class="item__value">+ 2,100.00</div>
+                                <div class="item__delete">
+                                    <button class="item__delete--btn">
+                                        <i class="ion-ios-close-outline"></i>
+                                    </button>
                                 </div>
                             </div>
-                        </article>
+                        </div>
+
+                        <div class="item clearfix" id="income-1">
+                            <div class="item__description">Sold car</div>
+                            <div class="right clearfix">
+                                <div class="item__value">+ 1,500.00</div>
+                                <div class="item__delete">
+                                    <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        -->
+
                     </div>
                 </div>
+                <div class="tile is-child box">
+                    <p class="title is-6 has-text-danger">Expenses</p>
+                    <div class="expenses__list">
+                        <div class="item clearfix" id="expense-0">
+                            <div class="item__description">Apartment rent</div>
+                            <div class="right clearfix">
+                                <div class="item__value">- 900.00</div>
+                                <div class="item__percentage">21%</div>
+                                <div class="item__delete">
+                                    <button class="item__delete--btn"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="item clearfix" id="expense-1">
+                            <div class="item__description">Grocery shopping</div>
+                            <div class="right clearfix">
+                                <div class="item__value">- 435.28</div>
+                                <div class="item__percentage">10%</div>
+                                <div class="item__delete">
+                                    <button class="item__delete--btn"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
-        <div class="tile is-vertical is-parent">
-            <div class="tile is-child box">
-                <p class="title is-6 has-text-primary">Income</p>
-                <div class="income__list">
-
-                    <!--
-                    <div class="item clearfix" id="income-0">
-                        <div class="item__description">Salary</div>
-                        <div class="right clearfix">
-                            <div class="item__value">+ 2,100.00</div>
-                            <div class="item__delete">
-                                <button class="item__delete--btn">
-                                    <i class="ion-ios-close-outline"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item clearfix" id="income-1">
-                        <div class="item__description">Sold car</div>
-                        <div class="right clearfix">
-                            <div class="item__value">+ 1,500.00</div>
-                            <div class="item__delete">
-                                <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    -->
-
-                </div>
-            </div>
-            <div class="tile is-child box">
-                <p class="title is-6 has-text-danger">Expenses</p>
-                <div class="expenses__list">
-                    <div class="item clearfix" id="expense-0">
-                        <div class="item__description">Apartment rent</div>
-                        <div class="right clearfix">
-                            <div class="item__value">- 900.00</div>
-                            <div class="item__percentage">21%</div>
-                            <div class="item__delete">
-                                <button class="item__delete--btn"><i class="fas fa-trash"></i></button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item clearfix" id="expense-1">
-                        <div class="item__description">Grocery shopping</div>
-                        <div class="right clearfix">
-                            <div class="item__value">- 435.28</div>
-                            <div class="item__percentage">10%</div>
-                            <div class="item__delete">
-                                <button class="item__delete--btn"><i class="fas fa-trash"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
     </div>
 </section>
 <footer class="footer">
     <div class="content has-text-centered">
         <p>
-            Made with ❤️ by <strong><a href="http://www.github.com/cjianhui">Jian Hui</a></strong> <br/> using <strong><a href="https://bulma.io">Bulma</a></strong> & Vanilla JS
+            Made with ❤️ by <strong><a href="http://www.github.com/cjianhui">Jian Hui</a></strong> <br/> using
+            <strong><a href="https://bulma.io">Bulma</a></strong> & Vanilla JS
         </p>
     </div>
 </footer>
+
+<script src="app.js"></script>
 </body>
 </html>
 
