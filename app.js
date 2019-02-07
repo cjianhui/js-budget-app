@@ -60,10 +60,10 @@ var budgetController = (function () {
 var UIController = (function () {
 
     var DOMstrings = {
-        inputType: 'add__type',
-        inputDescription: 'add__description',
-        inputValue: 'add__value',
-        inputBtn: 'add__btn',
+        inputType: '#add__type',
+        inputDescription: '#add__description',
+        inputValue: '#add__value',
+        inputBtn: '#add__btn',
         incomeContainer: '.income__list',
         expensesContainer: '.expenses__list'
     };
@@ -71,9 +71,9 @@ var UIController = (function () {
     return {
         getInput: function() {
             return {
-                type: document.getElementById(DOMstrings.inputType).value,
-                description: document.getElementById(DOMstrings.inputDescription).value,
-                value: document.getElementById(DOMstrings.inputValue).value
+                type: document.querySelector(DOMstrings.inputType).value,
+                description: document.querySelector(DOMstrings.inputDescription).value,
+                value: document.querySelector(DOMstrings.inputValue).value
             }
         },
 
@@ -102,6 +102,20 @@ var UIController = (function () {
 
             // Insert the HTML into the DOM
             document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
+        },
+
+        clearFields: function() {
+            var fields, fieldsArr;
+
+            fields = document.querySelectorAll(DOMstrings.inputDescription + ', ' + DOMstrings.inputValue);
+
+            fieldsArr = Array.prototype.slice.call(fields);
+
+            fieldsArr.forEach(function(current, index, array) {
+                current.value = "";
+            });
+
+            fieldsArr[0].focus();
         }
     }
 
@@ -113,7 +127,7 @@ var controller = (function(budgetCtrl, UICtrl) {
     var setupEventListeners = function() {
         var DOM = UICtrl.getDOMStrings();
 
-        document.getElementById(DOM.inputBtn).addEventListener('click', ctrlAddItem);
+        document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
 
         document.addEventListener('keypress', function(event) {
             if (event.keyCode === 13 || event.which === 13) {
@@ -132,10 +146,12 @@ var controller = (function(budgetCtrl, UICtrl) {
 
         // 2. Add the item to the budget controller
         newItem = budgetCtrl.addItem(input.type, input.description, input.value);
-        // 3. Add the item to the UI
 
+        // 3. Add the item to the UI
         UICtrl.addListItem(newItem, input.type);
+
         // 4. Clear the fields
+        UICtrl.clearFields();
 
         // 5. Calculate and update budget
 
