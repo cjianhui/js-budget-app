@@ -72,20 +72,10 @@
 }
 
 .income {
-    float: left;
-    width: 475px;
-    margin-right: 50px;
 }
 
 .expenses {
-    float: left;
-    width: 475px;
 }
-
-
-
-.icome__title { color: #28B9B5; }
-.expenses__title { color: #FF5049; }
 
 .item {
     padding: 13px;

@@ -7,6 +7,7 @@
     <link type="text/css" rel="stylesheet" href="style.css">
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 <body>
@@ -97,9 +98,10 @@
 
                 </div>
             </div>
-            <div class="tile is-vertical is-parent">
+            <div class="tile is-vertical is-parent" id="container">
                 <div class="tile is-child box">
                     <p class="title is-6 has-text-primary">Income</p>
+                    <div class="income">
                     <div class="income__list">
 
                         <!--
@@ -127,9 +129,11 @@
                         -->
 
                     </div>
+                    </div>
                 </div>
                 <div class="tile is-child box">
                     <p class="title is-6 has-text-danger">Expenses</p>
+                    <div class="expenses">
                     <div class="expenses__list">
 
                         <!--
@@ -156,6 +160,7 @@
                         </div>
 
                         !-->
+                    </div>
                     </div>
                 </div>
             </div>
