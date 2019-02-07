@@ -6,13 +6,25 @@ var budgetController = (function () {
 
 // UI Controller
 var UIController = (function () {
+
+    var DOMStrings = {
+        inputType: 'add__type',
+        inputDescription: 'add__description',
+        inputValue: 'add__value',
+        inputBtn: 'add__btn'
+    };
+
     return {
         getInput: function() {
             return {
-                type: document.getElementById('type').value,
-                description: document.getElementById('add__description').value,
-                value: document.getElementById('add__value').value
+                type: document.getElementById(DOMStrings.inputType).value,
+                description: document.getElementById(DOMStrings.inputDescription).value,
+                value: document.getElementById(DOMStrings.inputValue).value
             }
+        },
+
+        getDOMStrings: function() {
+            return DOMStrings;
         }
     }
 
@@ -21,7 +33,7 @@ var UIController = (function () {
 // Global App Controller
 var controller = (function(budgetCtrl, UICtrl) {
 
-    document.getElementById('add__btn').addEventListener('click', ctrlAddItem);
+    var DOM = UICtrl.getDOMStrings();
 
     var ctrlAddItem = function() {
         console.log('it works');
@@ -41,6 +53,8 @@ var controller = (function(budgetCtrl, UICtrl) {
 
         // 6. Calculate and update percentages
     }
+
+    document.getElementById(DOM.inputBtn).addEventListener('click', ctrlAddItem);
 
     document.addEventListener('keypress', function(event) {
         if (event.keyCode === 13 || event.which === 13) {
